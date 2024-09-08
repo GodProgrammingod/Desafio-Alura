@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando o CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Calibre', sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #D30001;
+        }
+
+        .codigo-exemplo {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            white-space: pre;
+        }
+
+        .interativo {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .interativo ul {
+            line-height: 1.8;
+            margin-left: 0;
+            list-style-type: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .testar-btn, .desafio-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #D30001;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .desafio-btn {
+            margin-left: 10px;
+        }
+
+        .bubbly-button {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            display: inline-block;
+            font-size: 1em;
+            padding: 1em 2em;
+            margin-top: 20px;
+            appearance: none;
+            background-color: #000;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .bubbly-button:focus {
+            outline: none;
+        }
+
+        .bubbly-button.animate {
+            transform: scale(0.9);
+        }
+
+        /* Glitch styles */
+        .glitch {
+            display: none; /* Escondido até clicar no botão */
+            color: white;
+            font-size: 100px;
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        @keyframes noise-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            10% { clip: rect(30px, 9999px, 60px, 0); }
+            20% { clip: rect(50px, 9999px, 90px, 0); }
+            30% { clip: rect(20px, 9999px, 50px, 0); }
+            40% { clip: rect(10px, 9999px, 40px, 0); }
+            50% { clip: rect(30px, 9999px, 70px, 0); }
+            60% { clip: rect(20px, 9999px, 60px, 0); }
+            70% { clip: rect(50px, 9999px, 90px, 0); }
+            80% { clip: rect(40px, 9999px, 80px, 0); }
+            90% { clip: rect(20px, 9999px, 70px, 0); }
+            100% { clip: rect(60px, 9999px, 100px, 0); }
+        }
+
+        .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -1px 0 red;
+            top: 0;
+            color: white;
+            background: black;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: noise-anim 2s infinite linear alternate-reverse;
+        }
+
+        .glitch:before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            text-shadow: 1px 0 blue;
+            top: 0;
+            color: white;
+            background: black;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: noise-anim 3s infinite linear alternate-reverse;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">CSS</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="html_page.html">HTML</a></li>
+                <li><a href="css_page.html">CSS</a></li>
+                <li><a href="java_page.html">JAVA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Explorando o CSS</h1>
+            <h4>Aqui você aprenderá os principais conceitos do CSS e verá interações práticas.</h4>
+
+            <!-- Funcionalidade 1: Alterando a cor do texto -->
+            <div class="interativo">
+                <h2>1. Alterando a cor do texto</h2>
+                <p>Com CSS, você pode alterar a cor do texto de maneira simples usando a propriedade <strong>color</strong>. Vamos ver como funciona:</p>
+                <div class="codigo-exemplo">
+p {<br>
+&nbsp;&nbsp;color: blue;<br>
+}
+                </div>
+
+                <textarea id="editor1">p {
+    color: blue;
+}</textarea>
+
+                <button class="testar-btn" onclick="testarCSS('editor1', 'resultado1')">Testar Código</button>
+                <button class="bubbly-button" id="desafio1" style="display:none;" onclick="abrirDesafio('Alterar a cor do texto para vermelho (red). Precisa colocar o nome dar cor em inglês')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado1"></div>
+            </div>
+
+            <!-- Funcionalidade 2: Alterando o tamanho da fonte -->
+            <div class="interativo">
+                <h2>2. Alterando o tamanho da fonte</h2>
+                <p>Outra funcionalidade importante do CSS é ajustar o tamanho da fonte usando a propriedade <strong>font-size</strong>.</p>
+                <div class="codigo-exemplo">
+p {<br>
+&nbsp;&nbsp;font-size: 50px;<br>
+}
+                </div>
+
+                <textarea id="editor2">p {
+    font-size: 50px;
+}</textarea>
+
+                <button class="testar-btn" onclick="testarCSS('editor2', 'resultado2')">Testar Código</button>
+                <button class="bubbly-button" id="desafio2" style="display:none;" onclick="abrirDesafio('Aumentar o tamanho da fonte para 100px.')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado2"></div>
+            </div>
+
+            <!-- Funcionalidade 3: Alterando o fundo de um elemento -->
+            <div class="interativo">
+                <h2>3. Alterando o fundo de um elemento</h2>
+                <p>Você pode personalizar o fundo de um elemento HTML com a propriedade <strong>background-color</strong>.</p>
+                <div class="codigo-exemplo">
+div {<br>
+&nbsp;&nbsp;background-color: yellow;<br>
+}
+                </div>
+
+                <textarea id="editor3">div {
+    background-color: yellow;
+}</textarea>
+
+                <button class="testar-btn" onclick="testarCSS('editor3', 'resultado3')">Testar Código</button>
+                <button class="bubbly-button" id="desafio3" style="display:none;" onclick="abrirDesafio('Mudar o fundo para a cor verde (green). Precisa colocar o nome dar cor em inglês')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado3"></div>
+            </div>
+
+            <!-- Funcionalidade 4: Centralizando um elemento -->
+            <div class="interativo">
+                <h2>4. Centralizando um elemento</h2>
+                <p>Com a propriedade <strong>text-align</strong>, você pode centralizar o texto dentro de um elemento.</p>
+                <div class="codigo-exemplo">
+div {<br>
+&nbsp;&nbsp;text-align: center;<br>
+}
+                </div>
+
+                <textarea id="editor4">div {
+    text-align: center;
+}</textarea>
+
+                <button class="testar-btn" onclick="testarCSS('editor4', 'resultado4')">Testar Código</button>
+                <button class="bubbly-button" id="desafio4" style="display:none;" onclick="abrirDesafio('Alinhe o texto para esquerda (left) ou para direita (right)')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado4"></div>
+            </div>
+
+            <!-- Funcionalidade 5: Efeito Glitch -->
+            <div class="interativo">
+                <h2>5. Aplicar efeito glitch no texto</h2>
+                <p>Agora vamos adicionar um efeito visual impressionante ao texto usando o estilo <strong>glitch</strong>.</p>
+                <div id="glitch-output"></div>
+                <textarea id="editor5">/* Adicione o CSS do glitch aqui */</textarea>
+                <button class="testar-btn" onclick="testarGlitch()">Testar Código</button>
+                <button class="bubbly-button" id="desafio5" style="display:none;" onclick="abrirDesafio('Aplique um efeito similar.')">Se entendeu, clique aqui e prove!</button>
+              
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© COPYRIGHT - Desenvolvido por GodProgramming - Todos os Direitos Reservados 2024</p>
+    </footer>
+
+    <script>
+        function testarCSS(editorId, resultadoId) {
+            var codigo = document.getElementById(editorId).value;
+            var style = document.createElement('style');
+            style.innerHTML = codigo;
+            document.head.appendChild(style);
+            document.getElementById(resultadoId).innerHTML = '<div>Veja o resultado aqui!</div>';
+            document.getElementById("desafio" + editorId[editorId.length - 1]).style.display = 'block';
+        }
+
+        function testarGlitch() {
+            var glitchDiv = document.createElement('div');
+            glitchDiv.className = 'glitch';
+            glitchDiv.setAttribute('data-text', 'GLITCH');
+            glitchDiv.innerHTML = 'GLITCH';
+            document.getElementById('glitch-output').appendChild(glitchDiv);
+            glitchDiv.style.display = 'block';
+        }
+
+        function abrirDesafio(mensagem) {
+            alert("Desafio: " + mensagem);
+        }
+    </script>
+
+      <script>
+        function testarHTML(editorId, resultadoId) {
+            var codigo = document.getElementById(editorId).value;
+            document.getElementById(resultadoId).innerHTML = codigo;
+
+            // Mostrar o botão de desafio após testar o código
+            var desafioBtnId = 'desafio' + editorId.replace('editor', '');
+            document.getElementById(desafioBtnId).style.display = 'inline-block';
+        }
+
+        function abrirDesafio(mensagem) {
+            alert("Desafio: " + mensagem);
+        }
+
+        var animateButton = function(e) {
+            e.preventDefault();
+            e.target.classList.remove('animate');
+            e.target.classList.add('animate');
+            setTimeout(function(){
+                e.target.classList.remove('animate');
+            }, 700);
+        };
+
+        var bubblyButtons = document.getElementsByClassName("bubbly-button");
+        for (var i = 0; i < bubblyButtons.length; i++) {
+            bubblyButtons[i].addEventListener('click', animateButton, false);
+        }
+    </script>
+
+</body>
+</html>

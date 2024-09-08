@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando o Java</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Calibre', sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #D30001;
+        }
+
+        .codigo-exemplo {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            white-space: pre;
+        }
+
+        .interativo {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .interativo ul {
+            line-height: 1.8;
+            margin-left: 0;
+            list-style-type: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .testar-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #D30001;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bubbly-button {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            display: inline-block;
+            font-size: 1em;
+            padding: 1em 2em;
+            margin-top: 20px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .bubbly-button:focus {
+            outline: none;
+        }
+
+        .bubbly-button.animate {
+            transform: scale(0.9);
+        }
+
+        #animatedTextContainer {
+            background-color: #314d79;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
+            font-family: "Lacquer", system-ui;
+        }
+
+        .rugrats {
+            text-align: center;
+            font-size: calc(4vw + 4vh);
+            color: #fff;
+            letter-spacing: -.3vw;
+        }
+
+        .rugrats span {
+            display: inline-block;
+            transition: color linear 0.5s forwards;
+            -webkit-text-stroke-width: .32vw;
+            -webkit-text-stroke-color: black;
+            text-shadow: .4vw .5vw #000;
+        }
+
+        #userTextInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #clockContainer {
+            background-color: #17202A;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            color: #F975F7;
+            font-family: 'Bungee', cursive;
+            text-align: center;
+            display: none;
+        }
+
+        #tx {
+            padding: 10px;
+            font-size: 48px;
+            text-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2;
+            filter: drop-shadow(2px 2px 20px #f008b7);
+        }
+
+        #colorPicker {
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">JAVA</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="html_page.html">HTML</a></li>
+                <li><a href="css_page.html">CSS</a></li>
+                <li><a href="java_page.html">JAVA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Explorando o Java</h1>
+            <h4>Veja como o Java pode ser utilizado para criar soluções robustas.</h4>
+
+            <!-- Funcionalidade 1: Estrutura básica (Animação de Hello World) -->
+            <div class="interativo">
+                <h2>1. Estrutura básica de um programa Java (Hello World Animado)</h2>
+                <div class="codigo-exemplo">
+public class HelloWorld {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello, World!");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+                </div>
+                <button class="testar-btn" onclick="animacaoHelloWorld()">Testar Código</button>
+                <div id="helloWorldOutput" class="resultado"></div>
+            </div>
+
+            <!-- Funcionalidade 2: Variáveis e Condições (Montanha-Russa) -->
+            <div class="interativo">
+                <h2>2. Variáveis e Tipos de Dados (Montanha-Russa)</h2>
+                <p>Advinhe com quanto anos e a altura necessária para ir na montanha russa.</p>    
+                <br><p>Esse será o seu desafio!</p></br>
+                <input type="number" id="idade" placeholder="Digite sua idade">
+                <input type="number" id="altura" placeholder="Digite sua altura em metros" step="0.01">
+                <button class="testar-btn" onclick="testarMontanhaRussa()">Testar Código</button>
+                <div id="montanhaRussaResultado" class="resultado"></div>
+            </div>
+
+            <!-- Funcionalidade 3: Estruturas de Controle (Números Primos) -->
+            <div class="interativo">
+                <h2>3. Estruturas de Controle (Números Primos)</h2>
+                <p>Clique até o limite hahahah!</p>
+                <button class="testar-btn" onclick="gerarNumerosPrimos()">Testar Código</button>
+                <div id="primosResultado" class="resultado" style="font-size: 20px;"></div>
+            </div>
+
+            <!-- Funcionalidade 4: Relógio Atual -->
+            <div class="interativo">
+                <h2>4. Relógio Atual</h2>
+                <p>Clique para ver o relógio em tempo real e mudar sua cor:</p>
+                <button class="testar-btn" onclick="mostrarRelogio()">Testar Código</button>
+                <div id="clockContainer">
+                    <div id="tx"></div>
+                    <input type="color" id="colorPicker" onchange="mudarCorRelogio()">
+                </div>
+            </div>
+
+            <!-- Funcionalidade 5: Texto Animado -->
+            <div class="interativo">
+                <h2>5. Texto Animado</h2>
+                <p>Digite o texto que deseja ver animado:</p>
+                <input type="text" id="userTextInput" placeholder="Digite seu texto aqui">
+                <button class="testar-btn" onclick="animarTexto()">Testar Código</button>
+                <div id="animatedTextContainer">
+                    <div id="animatedText" class="rugrats"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© COPYRIGHT - Desenvolvido por GodProgramming - Todos os Direitos Reservados 2024</p>
+    </footer>
+
+    <script>
+        // Funcionalidade 1: Animação de Hello World
+        function animacaoHelloWorld() {
+            let output = document.getElementById("helloWorldOutput");
+            output.innerHTML = ""; // Limpa antes de começar
+
+            let text = "Hello, World!";
+            let index = 0;
+
+            let animacao = setInterval(function() {
+                if (index < text.length) {
+                    output.innerHTML += text[index];
+                    index++;
+                } else {
+                    clearInterval(animacao);
+                }
+            }, 200); // Intervalo de 200ms entre cada letra
+        }
+
+        // Funcionalidade 2: Montanha-Russa
+        function testarMontanhaRussa() {
+            let idade = document.getElementById("idade").value;
+            let altura = document.getElementById("altura").value;
+            let resultado = document.getElementById("montanhaRussaResultado");
+
+            if (idade >= 17 && altura >= 1.5) {
+                resultado.innerHTML = "Você pode ir na montanha-russa!";
+            } else {
+                resultado.innerHTML = "Desculpe, você não pode ir na montanha-russa.";
+            }
+        }
+
+        // Funcionalidade 3: Gerador de Números Primos
+        let primos = [];
+        let fontSize = 20;
+        function gerarNumerosPrimos() {
+            let resultado = document.getElementById("primosResultado");
+            fontSize += 5; // Aumenta o tamanho da fonte
+
+            if (fontSize <= 200) {
+                let num = primos.length ? primos[primos.length - 1] + 1 : 2;
+
+                while (!isPrimo(num)) {
+                    num++;
+                }
+
+                primos.push(num);
+                resultado.innerHTML += num + " ";
+                resultado.style.fontSize = fontSize + "px";
+            } else {
+                resultado.innerHTML += "<br>Limite de tamanho atingido!";
+            }
+        }
+
+        function isPrimo(num) {
+            for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+                if (num % i === 0) return false;
+            return num > 1;
+        }
+
+        // Funcionalidade 4: Relógio Atual e Mudança de Cor
+        function mostrarRelogio() {
+            document.getElementById('clockContainer').style.display = 'block';
+            document.getElementById('colorPicker').style.display = 'block';
+
+            function time() {
+                var d = new Date();
+                document.getElementById("tx").innerHTML = d.toLocaleTimeString();
+            }
+            setInterval(time, 1000);
+        }
+
+        function mudarCorRelogio() {
+            var color = document.getElementById('colorPicker').value;
+            document.getElementById('tx').style.color = color;
+        }
+
+        // Funcionalidade 5: Texto Animado
+        function animarTexto() {
+            var userInput = document.getElementById('userTextInput').value;
+            var div = document.getElementById('animatedText');
+            div.innerHTML = "";
+
+            for (var i = 0; i < userInput.length; i++) {
+                var span = document.createElement("span");
+                span.textContent = userInput[i];
+                div.appendChild(span);
+            }
+
+            var spans = div.querySelectorAll('span');
+
+            function shuffle(array) {
+                for (var i = array.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                return array;
+            }
+
+            spans = shuffle(Array.from(spans));
+
+            function getRandomValue() {
+                return Math.random() * 0.4 - 0.24; 			
+            }
+
+            function applyRandomTransform() {
+                spans.forEach(function(span) {
+                    var xOffset = getRandomValue() * 10;
+                    var yOffset = getRandomValue() * 15;
+                    var rotation = getRandomValue() * 6;
+
+                    span.style.transform = 'translate(' + xOffset + 'px, ' + yOffset + 'px) rotate(' + rotation + 'deg)';
+                });
+            }
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            var currentIndex = 0;
+
+            function changeColorSequentially() {
+                spans.forEach(function(span, index) {
+                    var colorIndex = (index + currentIndex) % spans.length;
+                    span.style.color = (colorIndex === 0) ? getRandomColor() : spans[colorIndex - 1].style.color;
+                });
+
+                currentIndex = (currentIndex + 1) % spans.length;
+            }
+
+            setInterval(changeColorSequentially, 250); 
+            setInterval(applyRandomTransform, 100); 
+        }
+    </script>
+</body>
+</html>

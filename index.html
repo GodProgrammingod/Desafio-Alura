@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Estilo Rails</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilo específico para o conteúdo interativo -->
+    <style>
+        #conteudo-interativo {
+            display: none;
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        .cta-button {
+            cursor: pointer;
+        }
+
+        .experiencia-divertida {
+            font-family: 'Calibre', sans-serif;
+            font-size: 18px;
+            line-height: 1.8; /* Aumenta o espaçamento entre as linhas */
+        }
+
+        .experiencia-divertida strong {
+            color: #D30001;
+        }
+
+        .experiencia-divertida p {
+            margin-bottom: 20px; /* Espaçamento entre parágrafos */
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">Home</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="html_page.html">HTML</a></li>
+                <li><a href="css_page.html">CSS</a></li>
+                <li><a href="java_page.html">JAVA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Programação em Ação</h1>
+            <h4>O modo convencional de aprender programação é muito limitante, pois só vemos os resultados depois de implementado. <strong>Aqui é diferente! Você vê o resultado antes de fazer.</strong></h4>
+
+            <!-- O botão que revela o conteúdo -->
+<a class="cta-button" onclick="mostrarConteudo()">Clique aqui e saiba o que nos aguarda!</a>
+
+            <!-- O conteúdo escondido que será exibido ao clicar no botão -->
+            <div id="conteudo-interativo" class="experiencia-divertida">
+                <h2>Prepare-se para uma experiência interativa e divertida!</h2>
+
+                <p>Ao clicar nas páginas de <strong>HTML</strong>, você terá a chance de aprender a construir a estrutura dos sites, de forma interativa e prática. Imagine que o HTML é como os blocos de construção de uma casa. Com ele, você vai levantar as paredes, portas e janelas de suas páginas!</p>
+                
+                <p>Já no <strong>CSS</strong>, você vai personalizar tudo! Sabe quando você decora sua casa? Com o CSS, você vai escolher as cores, formas e até os detalhes que deixarão sua página incrível. E o melhor de tudo, será completamente interativo, para que você veja as mudanças acontecendo ao vivo!</p>
+                
+                <p>No <strong>Java</strong>, a diversão começa quando você dá vida à sua página. Pense no Java como o motor que faz o carro andar. Aqui, você aprenderá de maneira prática como fazer sua página interagir com o usuário, mover coisas e realizar ações mágicas!</p>
+                
+                <p><strong>É isso mesmo!</strong> Com HTML, CSS e Java, você vai <strong>aprender enquanto se diverte</strong>, experimentando diretamente na prática. E, claro, tudo com exemplos interativos, para que você sinta o poder de criar enquanto explora as possibilidades!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© COPYRIGHT - Desenvolvido por GodProgramming - Todos os Direitos Reservados 2024</p>
+    </footer>
+
+    <!-- O script JavaScript para mostrar o conteúdo -->
+    <script>
+        function mostrarConteudo() {
+            var conteudo = document.getElementById("conteudo-interativo");
+            if (conteudo.style.display === "none") {
+                conteudo.style.display = "block";  // Mostra o conteúdo
+            } else {
+                conteudo.style.display = "none";  // Esconde o conteúdo se já estiver visível
+            }
+        }
+    </script>
+
+</body>
+</html>

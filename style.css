@@ -1,0 +1,298 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Importando as fontes */
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('./fonts/IBMPlexMono-Medium.woff2') format('woff2'),
+         url('./fonts/IBMPlexMono-Text.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('./fonts/calibre-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('./fonts/calibre-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('./fonts/calibre-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Calibre', sans-serif;
+    background-color: #F0E7E9;
+    color: #261B23;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    display: inline-block;
+    font-size: 24px;
+    color: #D30001;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.navbar .menu {
+    display: inline-block;
+}
+
+.navbar .menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar .menu li a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    text-decoration: none;
+    color: #261B23;
+    padding: 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar .menu li a:hover {
+    color: #fff;
+    background-color: #D30001;
+    border-radius: 6px;
+}
+
+/* Estilo do conteúdo */
+.content {
+    padding: 80px 20px;
+}
+
+.content h1 {
+    font-family: 'Calibre', sans-serif;
+    font-size: 42px;
+    color: #D30001;
+    margin-bottom: 20px;
+}
+
+.content h4 {
+    font-family: 'Calibre', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* Estilo do botão "Testar Código" */
+.testar-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #D30001;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #EEE1E5;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #EEE1E5;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo do botão bubbly */
+.bubbly-button {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em 2em;
+    margin-top: 20px;
+    appearance: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.5);
+}
+
+.bubbly-button:focus {
+    outline: none;
+}
+
+.bubbly-button.animate {
+    transform: scale(0.9);
+}
+
+/* Animações */
+@keyframes topBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+    }
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+    }
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+@keyframes bottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+    }
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+    }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.bubbly-button {
+    display: none; /* O botão começa oculto */
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #ff0081;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+
+.bubbly-button:focus {
+    outline: none;
+}
+
+.bubbly-button.animate {
+    transform: scale(0.9);
+}
+
+/* Animação bubbly */
+@keyframes topBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+    }
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+    }
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+@keyframes bottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+    }
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+    }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    text-decoration: none;
+
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+
+    padding: 0.75em 1em;
+
+    color: #ee0000bf;
+
+    border: 0.15em solid #ee0000bf;
+    border-radius: calc(0.75em + 0.5em + 0.15em);
+
+    transition: 4s;
+}
+
+.cta-button:before,
+.cta-button:after {
+    content: '';
+    position: absolute;
+    top: -1.5em;
+
+    z-index: -1;
+
+    width: 200%;
+    aspect-ratio: 1;
+
+    border-radius: 40%;
+
+    background-color: rgba(255, 136, 0, 0.25);
+
+    transition: 4s;
+}
+
+.cta-button:before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+}
+
+.cta-button:after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    color: white;
+
+    &:before,
+    &:after {
+        transform: none;
+        background-color: #ee0000bf;
+    }
+}
+

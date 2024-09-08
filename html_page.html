@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando o HTML</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Calibre', sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #D30001;
+        }
+
+        .codigo-exemplo {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            white-space: pre;
+        }
+
+        .interativo {
+            margin-top: 20px;
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        .interativo ul {
+            line-height: 1.8; /* Espaçamento entre linhas */
+            margin-left: 0; /* Remove a margem esquerda */
+            list-style-type: none; /* Remove os pontos da lista */
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .testar-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #D30001;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bubbly-button {
+            display: none; /* O botão começa oculto */
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #ff0081;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+            box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+        }
+
+        .bubbly-button:focus {
+            outline: none;
+        }
+
+        .bubbly-button.animate {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">HTML</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="html_page.html">HTML</a></li>
+                <li><a href="css_page.html">CSS</a></li>
+                <li><a href="java_page.html">JAVA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Explorando o HTML</h1>
+            <h4>Nessa página, você poderá ver os conceitos e interações possíveis com HTML.</h4>
+
+            <!-- Funcionalidade 1: Estrutura Básica -->
+            <div class="interativo">
+                <h2>1. Estrutura Básica de uma Página HTML</h2>
+                <p>A estrutura básica de uma página HTML pode ser comparada à construção de uma casa. Cada tag tem um papel específico, como se fosse uma parte dessa construção. Vamos entender isso:</p>
+                <ul>
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong>: Pense nisso como a placa na entrada da obra. Ela avisa aos construtores (navegadores) qual o estilo da construção (HTML5).</li>
+                    <li><strong>&lt;html&gt;</strong>: Esta tag é como as paredes externas da casa. Tudo o que está dentro dela faz parte da estrutura principal do site.</li>
+                    <li><strong>&lt;head&gt;</strong>: O "sótão" da casa, onde guardamos informações importantes que o usuário não vê diretamente, como o título e os metadados.</li>
+                    <li><strong>&lt;body&gt;</strong>: Aqui é a sala de estar, onde colocamos o conteúdo visível da página, como textos e imagens.</li>
+                </ul>
+                <div class="codigo-exemplo">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Minha Página&lt;/title&gt;<br>
+&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Bem-vindo ao HTML!&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Esse é um exemplo de HTML básico.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;
+                </div>
+
+                <textarea id="editor1">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bem-vindo ao HTML!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+
+                <button class="testar-btn" onclick="testarHTML('editor1', 'resultado1')">Testar Código</button>
+                <button class="bubbly-button" id="desafio1" onclick="abrirDesafio('Escreva algo entre as tags <h1>[ESCREVA ALGO AQUI]</h1>')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado1"></div>
+            </div>
+
+            <!-- Funcionalidade 2: Cabeçalhos e Parágrafos -->
+         <div class="interativo">
+    <h2 style="color: red; font-weight: bold;">2. Cabeçalhos e Parágrafos</h2>
+    <p>Cabeçalhos organizam e estruturam o conteúdo da página, assim como os títulos de um livro. A hierarquia vai de <strong>&lt;h1&gt;</strong> (mais importante) a <strong>&lt;h6&gt;</strong> (menos importante).</p>
+    <ul>
+        <li><strong>&lt;h1&gt;</strong>: Pense como o título da capa de um livro.</li>
+        <li><strong>&lt;h2&gt;</strong>: Subtítulos maiores dentro de seções.</li>
+        <li><strong>&lt;h6&gt;</strong>: Subtítulos menores para tópicos mais específicos.</li>
+    </ul>
+    <p>Os parágrafos seguem os cabeçalhos, detalhando as informações como o corpo de um capítulo em um livro.</p>
+</div>
+
+            
+                <div class="codigo-exemplo">
+&lt;h1&gt;Cabeçalho 1&lt;/h1&gt;<br>
+&lt;h2&gt;Cabeçalho 2&lt;/h2&gt;<br>
+&lt;p&gt;Este é um parágrafo.&lt;/p&gt;
+                </div>
+
+                <textarea id="editor2">&lt;h1&gt;Meu Título&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;p&gt;Este é um parágrafo no HTML.&lt;/p&gt;</textarea>
+
+                <button class="testar-btn" onclick="testarHTML('editor2', 'resultado2')">Testar Código</button>
+                <button class="bubbly-button" id="desafio2" onclick="abrirDesafio('Faça testes com <h3></3>, <h4></4>, <h5></5> ou <10></10>')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado2"></div>
+            </div>
+
+            <!-- Funcionalidade 3: Links e Imagens -->
+            <div class="interativo">
+                <h2 style="color: red; font-weight: bold;">3. Links e Imagens</h2>
+                <p>Os links em uma página web funcionam como portas que levam você para diferentes ambientes, ou seja, outras páginas da web. Imagine que você está em uma sala e quer visitar outra; o link é a porta que você usa para se deslocar. Eles conectam sua página a outros lugares na internet de maneira simples e eficaz.</p>
+               <br> <p>As imagens são como quadros que enfeitam essa sala. Elas não só ilustram o conteúdo como também ajudam a transmitir ideias e emoções sem a necessidade de palavras. Uma imagem bem posicionada pode comunicar uma mensagem de forma muito mais rápida e direta.</p>
+                <p>Veja na prática:</p>
+            
+                <ul>
+                    <li><strong>&lt;a href=&quot;https://www.google.com&quot;&gt;</strong>: Este é o link que redireciona o usuário para uma nova página, como o Google.</li>
+                    <li><strong>&lt;img src=&quot;imagem.jpg&quot; alt=&quot;Descrição da Imagem&quot;&gt;</strong>: Essa tag insere uma imagem na página, com uma descrição fornecida no atributo "alt".</li>
+                </ul>
+            
+                    <!-- Parte visível (sem duplicação) -->
+                    <a href="https://www.google.com" style="font-size: 20px; font-weight: bold; color: red;">Visite o Google</a><br>
+                    <img src="https://neilpatel.com/wp-content/uploads/2017/12/codigos-html-para-paginas-web-700x467.jpeg" alt="Exemplo de Código HTML" width="400">
+                </div>
+                
+                <!-- Área onde o código é mostrado -->
+                <textarea id="editor3" rows="5" cols="60">
+                &lt;a href=&quot;https://www.google.com&quot; style=&quot;font-size: 20px; font-weight: bold; color: red;&quot;&gt;Visite o Google&lt;/a&gt;
+                &lt;br&gt;
+                &lt;img src=&quot;https://neilpatel.com/wp-content/uploads/2017/12/codigos-html-para-paginas-web-700x467.jpeg&quot; alt=&quot;Exemplo de Código HTML&quot;&gt;
+                </textarea>
+                
+                
+
+                <button class="testar-btn" onclick="testarHTML('editor3', 'resultado3')">Testar Código</button>
+                <button class="bubbly-button" id="desafio3" onclick="abrirDesafio('Tente colocar algum link de algo que goste e o link de uma imagem que goste. Quero ver se você consegue')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado3"></div>
+            </div>
+
+            <!-- Funcionalidade 4: Formatação de Texto -->
+            <div class="interativo">
+                <h2 style="color: red; font-weight: bold;">4. Formatação de Texto</h2>
+                <br> <p>Você pode imaginar a formatação de texto como a ênfase que você dá ao falar. Quando você quer destacar algo importante, você pode falar mais alto ou com mais firmeza, assim como o <strong>negrito</strong> faz no texto. Para ideias mais sutis ou para mostrar que algo é especial, você pode usar um tom mais suave, que é como o <em>itálico</em> no texto.</p> </br>
+                
+                <br> <p>Vamos testar:</p> </br>
+            
+                <ul>
+                    <li><strong>&lt;strong&gt;</strong>: Essa tag aplica <strong>negrito</strong> ao texto, destacando-o.</li>
+                    <li><strong>&lt;em&gt;</strong>: Essa tag aplica <em>itálico</em> ao texto, enfatizando algo de maneira mais suave.</li>
+                </ul>
+                </div>
+
+                <textarea id="editor4">&lt;b&gt;Texto importante&lt;/b&gt;
+&lt;br&gt;
+&lt;i&gt;Texto em itálico&lt;/i&gt;</textarea>
+
+                <button class="testar-btn" onclick="testarHTML('editor4', 'resultado4')">Testar Código</button>
+                <button class="bubbly-button" id="desafio4" onclick="abrirDesafio('Pegue um texto e coloque aqui, depois disso tente destacar partes importantes deles com as tags apresentadas aqui!')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado4"></div>
+            </div>
+
+            <!-- Funcionalidade 5: Formulários Básicos -->
+            <div class="interativo">
+                <h2 style="color: red; font-weight: bold;">5. Formulários Básicos</h2>
+                <p>Os formulários em uma página web funcionam como questionários que você entrega a alguém para coletar informações. Imagine que você está em uma loja e recebe um formulário para preencher com seus dados — o mesmo acontece online. Os formulários são usados para coletar dados importantes, como nome, email e preferências do usuário.</p>
+                <p>Veja como:</p>
+            
+                <ul>
+                    <li><strong>&lt;form&gt;</strong>: Esta tag cria o formulário, é como o papel onde as perguntas serão escritas.</li>
+                    <li><strong>&lt;input type="text"&gt;</strong>: Cria um campo onde o usuário pode digitar informações, como seu nome.</li>
+                    <li><strong>&lt;input type="email"&gt;</strong>: Um campo específico para o usuário inserir o endereço de email.</li>
+                    <li><strong>&lt;input type="submit"&gt;</strong>: O botão que o usuário clica para enviar suas respostas.</li>
+                </ul>
+            </div>
+            
+
+                <textarea id="editor5">&lt;form&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Seu nome&quot;&gt;
+    &lt;br&gt;
+    &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</textarea>
+
+                <button class="testar-btn" onclick="testarHTML('editor5', 'resultado5')">Testar Código</button>
+                <button class="bubbly-button" id="desafio5" onclick="abrirDesafio('Acesse esse site é cole aqui os formulários que achar: https://developer.mozilla.org/pt-BR/docs/Learn/Forms/How_to_structure_a_web_form')">Se entendeu, clique aqui e prove!</button>
+                <div class="resultado" id="resultado5"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© COPYRIGHT - Desenvolvido por GodProgramming - Todos os Direitos Reservados 2024</p>
+    </footer>
+
+    <script>
+        function testarHTML(editorId, resultadoId) {
+            var codigo = document.getElementById(editorId).value;
+            document.getElementById(resultadoId).innerHTML = codigo;
+
+            // Mostrar o botão de desafio após testar o código
+            var desafioBtnId = 'desafio' + editorId.replace('editor', '');
+            document.getElementById(desafioBtnId).style.display = 'inline-block';
+        }
+
+        function abrirDesafio(mensagem) {
+            alert("Desafio: " + mensagem);
+        }
+
+        var animateButton = function(e) {
+            e.preventDefault();
+            e.target.classList.remove('animate');
+            e.target.classList.add('animate');
+            setTimeout(function(){
+                e.target.classList.remove('animate');
+            }, 700);
+        };
+
+        var bubblyButtons = document.getElementsByClassName("bubbly-button");
+        for (var i = 0; i < bubblyButtons.length; i++) {
+            bubblyButtons[i].addEventListener('click', animateButton, false);
+        }
+    </script>
+</body>
+</html>
